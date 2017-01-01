@@ -72,7 +72,7 @@ def download_pdf_from_paperpage(url):
     soup = BeautifulSoup(paperpage.text)
     pdfurls = soup.findAll(u"meta", attrs={u"name": u"citation_pdf_url"})
     lencheck(pdfurls)
-    pdfurl = "http:" + pdfurls[0][u"content"]
+    pdfurl = pdfurls[0][u"content"]
     biburls = soup.findAll(u"a", attrs={u"href":
                                         re.compile(r'bibtex$')})
     lencheck(biburls)
